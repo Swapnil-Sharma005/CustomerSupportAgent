@@ -23,10 +23,11 @@ public class ClaudeApiService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public Map<String, Object> sendMessage(List<Message> messages, List<Tool> tools) {
+    public Map<String, Object> sendMessage(List<Message> messages, String systemPrompt,List<Tool> tools) {
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("model", "claude-sonnet-4-20250514");
         requestBody.put("max_tokens", 1000);
+        requestBody.put("system", systemPrompt);
         requestBody.put("tools", tools);
         requestBody.put("messages", messages);
         HttpHeaders headers = new HttpHeaders();
@@ -35,7 +36,6 @@ public class ClaudeApiService {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(requestBody, headers);
 
-        Map<String, Object> response = restTemplate.postForObject("https://api.anthropic.com/v1/messages", requestEntity, Map.class);
-        return response;
+        return restTemplate.postForObject("https://api.anthropic.com/v1/messages", requestEntity, Map.class);
     }
 }

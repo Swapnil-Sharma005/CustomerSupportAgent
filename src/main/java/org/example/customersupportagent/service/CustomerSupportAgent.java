@@ -78,7 +78,7 @@ public class CustomerSupportAgent {
 
             Map<String, Object> response;
             try {
-                response = claudeApiService.sendMessage(messages,buildTools());
+                response = claudeApiService.sendMessage(messages,SYSTEM_PROMPT,buildTools());
             } catch (Exception e) {
                 System.err.println("ERROR: Failed to call Claude API: " + e.getMessage());
                 e.printStackTrace();

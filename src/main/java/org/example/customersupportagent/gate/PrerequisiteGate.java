@@ -1,13 +1,14 @@
 package org.example.customersupportagent.gate;
 
-import java.util.HashMap;
+import org.springframework.stereotype.Component;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public class PrerequisiteGate {
 
-    private Map<String, String> verifiedCustomerIds = new ConcurrentHashMap<>();
+    private final Map<String, String> verifiedCustomerIds = new ConcurrentHashMap<>();
 
     public void markCustomerVerified(String sessionId, String customerId) {
         verifiedCustomerIds.put(sessionId, customerId);

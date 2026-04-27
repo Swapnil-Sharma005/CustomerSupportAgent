@@ -1,0 +1,14 @@
+# Spring Application Configuration Template
+# Copy this file to application.properties and fill in your actual values
+
+spring.application.name=CustomerSupportAgent
+
+# Claude API Configuration
+# Get your API key from: https://console.anthropic.com/settings/keys
+# You can set this via environment variable: export ANTHROPIC_API_KEY=your_key_here
+# Or set it directly here (NOT recommended for production)
+claude.api.key=${ANTHROPIC_API_KEY:your_api_key_here}
+
+# Logging (optional)
+# logging.level.org.example.customersupportagent=DEBUG
+# logging.level.org.springframework.web=INFO
