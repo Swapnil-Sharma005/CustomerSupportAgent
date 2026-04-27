@@ -1,4 +1,4 @@
-package org.example.customersupportagent;
+package org.example.customersupportagent.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
